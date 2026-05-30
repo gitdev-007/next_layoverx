@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #001a4d;
+  --color-electric-blue: #0066ff;
+}
 
 * {
   margin: 0;
