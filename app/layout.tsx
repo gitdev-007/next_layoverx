@@ -49,24 +49,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const schemaMarkup = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'LayoverX',
+    url: 'https://layoverx.com',
+    logo: 'https://layoverx.com/logo.png',
+    description: 'Smart Travel. Better Connections.',
+    sameAs: [
+      'https://twitter.com/layoverx',
+      'https://facebook.com/layoverx',
+      'https://linkedin.com/company/layoverx'
+    ]
+  }
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'LayoverX',
-            url: 'https://layoverx.com',
-            logo: 'https://layoverx.com/logo.png',
-            description: 'Smart Travel. Better Connections.',
-            sameAs: [
-              'https://twitter.com/layoverx',
-              'https://facebook.com/layoverx',
-              'https://linkedin.com/company/layoverx'
-            ]
-          })}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
       </head>
       <body className="font-sans antialiased bg-white text-gray-900">
         {children}
